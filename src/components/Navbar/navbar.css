@@ -1,0 +1,11 @@
+.navbg{
+background-color: rgba(0, 0, 0, 0.5);
+}
+.showprofile{
+    top: 40px;
+    right: 0px;
+   
+}
+.hideProfile{
+   display: none;
+}
