@@ -4,7 +4,7 @@ import img2 from '../../assets/express-delivery.png'
 import img3 from '../../assets/affordable.png'
 const Services = () => {
     return (
-        <div className='container mx-auto'>
+        <div className='container mx-auto mb-12'>
             <div className='text-center'>
                 <h2 className='text-5xl mt-10 mb-5 text-center font-bold py-3 border-y-2 inline-block'>Our special services</h2>
             </div>

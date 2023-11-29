@@ -48,20 +48,20 @@ const Navbar = () => {
                         user && !isAdmin && <li><NavLink to={'dashboard/userHome'}>Dashboard</NavLink></li>
                     } */}
 
-                    <li><NavLink to={'/menu'}>Our Menu</NavLink></li>
+                    <li><NavLink to={'/dashboard'}>DashBoard</NavLink></li>
                     <li className='flex relative mr-2'><span><NavLink to={'/'}><FaBell className='text-3xl'></FaBell></NavLink></span><Link to={'/dashboard/cart'}><div className="absolute badge text-[12px] badge-secondary top-0 left-[16px]">+{cart.length}</div></Link></li>
                     <li>
                         <div className='flex items-center gap-5 relative'>
                             <div style={{ position: 'absolute', zIndex: '10' }} className={showProfie ? 'showprofile' : 'hideProfile'}>
                                 <ul className="menu bg-[#242424] w-56 rounded-box">
-                                    <li className='w-full text-center text-3xl mb-5'>{user?.displayName}</li>
+                                    <li className='w-full text-center text-2xl mb-5'>{user?.displayName}</li>
                                     <li onClick={hideMenu}><Link to={'/dashboard'}>DashBoard</Link></li>
                                     <li onClick={hideMenu}><button onClick={handleLogout} className=''>LogOut</button></li>
                                 </ul>
                             </div>
                         </div>
                         {
-                            user ? <div onClick={handleDropdown} className='flex gap-1 cursor-pointer mr-5'><img className="h-[40px] w-[40px] rounded-full" src={user.photoURL}></img></div> : <NavLink to={'/login'}>Login</NavLink>
+                            user ? <div onClick={handleDropdown} className='flex gap-1 cursor-pointer'><img className="h-[40px] w-[40px] rounded-full" src={user.photoURL}></img></div> : <NavLink to={'/login'}>Login</NavLink>
                         }
                     </li>
 
