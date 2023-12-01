@@ -9,11 +9,15 @@ import { AuthContext } from '../../provider/AuthProvider';
 import useCart from '../../hooks/useCart';
 import { FaBell } from 'react-icons/fa';
 import Loading from '../Loading/Loading';
+import useAdmin from '../../hooks/useAdmin';
+import useDeliveryman from '../../hooks/useDeliveryman';
 const Navbar = () => {
     const { user, logOut,loading } = useContext(AuthContext)
     const [showProfie,setShowProfile] = useState(false)
     // const [isAdmin] = useAdmin()
     const [cart] = useCart()
+    const [isAdmin] = useAdmin()
+    const [isdeliveryMan] = useDeliveryman()
     const handleLogout = () => {
         logOut()
             .then(res =>{
@@ -27,9 +31,9 @@ const Navbar = () => {
     const hideMenu = ()=>{
         setShowProfile(false)
     }
-    if(loading){
-        return <Loading></Loading>
-    }
+    // if(loading){
+    //     return <Loading></Loading>
+    // }
     return (
         <div className="navbg py-3 fixed z-10 w-full text-white">
             <div className="container mx-auto flex justify-between items-center">
@@ -40,15 +44,15 @@ const Navbar = () => {
                 <ul className="flex gap-5 font-bold text-xl">
                     <li className=''><NavLink>Home</NavLink></li>
                     <li><NavLink>contact us</NavLink></li>
-                    {/* {
-                        user && isAdmin && <li><NavLink to={'dashboard/adminHome'}>Dashboard</NavLink></li>
+                   
+                        {/* user && isAdmin && <li><NavLink to={'dashboard/adminHome'}>Dashboard</NavLink></li> */}
 
-                    }
-                    {
-                        user && !isAdmin && <li><NavLink to={'dashboard/userHome'}>Dashboard</NavLink></li>
-                    } */}
+                        {
+                            user && !isAdmin && !isdeliveryMan && <li><NavLink to={'dashboard/userHome'}>Dashboard</NavLink></li>
+                        }
+                    
 
-                    <li><NavLink to={'/dashboard'}>DashBoard</NavLink></li>
+                    {/* <li><NavLink to={'/dashboard'}>DashBoard</NavLink></li> */}
                     <li className='flex relative mr-2'><span><NavLink to={'/'}><FaBell className='text-3xl'></FaBell></NavLink></span><Link to={'/dashboard/cart'}><div className="absolute badge text-[12px] badge-secondary top-0 left-[16px]">+{cart.length}</div></Link></li>
                     <li>
                         <div className='flex items-center gap-5 relative'>

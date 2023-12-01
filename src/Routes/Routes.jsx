@@ -6,6 +6,11 @@ import Signup from "../pages/SignUp/Signup";
 import Dashboard from "../layout/Main/Dashboard";
 import PrivateRoute from "./Private/PrivateRoute";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import BookParcel from "../pages/Dashboard/BookParcel/BookParcel";
+import MyParcel from "../pages/Dashboard/MyParcel/MyParcel";
+import UpdateParcel from "../pages/Dashboard/UpdateParcel/UpdateParcel";
+import UserHome from "../pages/Dashboard/userHome/UserHome";
+import UserProfile from "../pages/Dashboard/UseProfile/UserProfile";
 
 export const router = createBrowserRouter([
     {
@@ -30,11 +35,30 @@ export const router = createBrowserRouter([
     {
         path:'dashboard',
         element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
-        // children:[
-        //     {
-        //        path:'adminHome' 
-        //     }
-        // ]
+        children:[
+            {
+                path:'userHome',
+                element:<PrivateRoute><UserHome></UserHome></PrivateRoute>
+            },
+            {
+                path:'myProfile',
+                element:<UserProfile></UserProfile>
+            },
+            {
+               path:'bookParcel',
+               element:<PrivateRoute><BookParcel></BookParcel></PrivateRoute> 
+            },
+            {
+                path:'updateParcel/:id',
+                element:<PrivateRoute><UpdateParcel></UpdateParcel></PrivateRoute>,
+                loader:({params})=>fetch(`http://localhost:5000/cart/${params.id}`)
+            },
+            {
+                path:'myParcels',
+                element:<PrivateRoute><MyParcel></MyParcel></PrivateRoute>
+
+            }
+        ]
     }
   ]); 
 
