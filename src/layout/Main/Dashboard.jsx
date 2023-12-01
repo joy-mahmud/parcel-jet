@@ -26,16 +26,18 @@ const Dashboard = () => {
 
                     { isdeliveryMan &&<>
                         <NavLink to={'/'}><li className="text-white border-b-2 p-2 border-[#3C3C3C] flex items-center gap-1 text-xl font-semibold"><FaHome></FaHome> <p>Home</p></li></NavLink>
-                        <NavLink><li className="text-white border-b-2 p-2 border-[#3C3C3C] flex items-center gap-1 text-xl font-semibold"><FaList></FaList> <p>My delivery List</p></li></NavLink>
+                        <NavLink to={'/dashboard/myDeliveryList'}><li className="text-white border-b-2 p-2 border-[#3C3C3C] flex items-center gap-1 text-xl font-semibold"><FaList></FaList> <p>My delivery List</p></li></NavLink>
                         <NavLink> <li className="text-white border-b-2 p-2 border-[#3C3C3C] flex items-center gap-1 text-xl font-semibold"><FaStar></FaStar><p>My Reviews</p></li></NavLink>
                         <NavLink> <li className="text-white border-b-2 p-2 border-[#3C3C3C] flex items-center gap-1 text-xl font-semibold"><FaUser></FaUser> <p>my profile</p></li></NavLink>
+                        <NavLink to={'/dashboard/bookParcel'}><li className="text-white border-b-2 p-2 border-[#3C3C3C] flex items-center gap-1 text-xl font-semibold"><FaBook></FaBook> <p>Book a parcel</p></li></NavLink>
                     </>}
                     { isAdmin &&<>
                         <NavLink to={'/'}><li className="text-white border-b-2 p-2 border-[#3C3C3C] flex items-center gap-1 text-xl font-semibold"><FaHome></FaHome> <p>Home</p></li></NavLink>
-                        <NavLink><li className="text-white border-b-2 p-2 border-[#3C3C3C] flex items-center gap-1 text-xl font-semibold"><FaList></FaList> <p>All parcels</p></li></NavLink>
-                        <NavLink><li className="text-white border-b-2 p-2 border-[#3C3C3C] flex items-center gap-1 text-xl font-semibold"><FaUsers></FaUsers><p>All Users</p></li></NavLink>
-                        <NavLink> <li className="text-white border-b-2 p-2 border-[#3C3C3C] flex items-center gap-1 text-xl font-semibold"><FaUsers></FaUsers><p>All Delivery Men</p></li></NavLink>
+                        <NavLink to={'/dashboard/allParcels'}><li className="text-white border-b-2 p-2 border-[#3C3C3C] flex items-center gap-1 text-xl font-semibold"><FaList></FaList> <p>All parcels</p></li></NavLink>
+                        <NavLink to={'/dashboard/allUsers'}><li className="text-white border-b-2 p-2 border-[#3C3C3C] flex items-center gap-1 text-xl font-semibold"><FaUsers></FaUsers><p>All Users</p></li></NavLink>
+                        <NavLink to={'/dashboard/allDeliveryMen'}> <li className="text-white border-b-2 p-2 border-[#3C3C3C] flex items-center gap-1 text-xl font-semibold"><FaUsers></FaUsers><p>All Delivery Men</p></li></NavLink>
                         <NavLink> <li className="text-white border-b-2 p-2 border-[#3C3C3C] flex items-center gap-1 text-xl font-semibold"><FaUser></FaUser> <p>my profile</p></li></NavLink>
+                        <NavLink to={'/dashboard/bookParcel'}><li className="text-white border-b-2 p-2 border-[#3C3C3C] flex items-center gap-1 text-xl font-semibold"><FaBook></FaBook> <p>Book a parcel</p></li></NavLink>
                     </>}
                     
                 </ul>

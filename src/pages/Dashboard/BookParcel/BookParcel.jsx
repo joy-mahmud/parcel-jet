@@ -16,9 +16,9 @@ const BookParcel = () => {
         formState: { errors },
     } = useForm()
     const onSubmit = async (data) => {
-        const approximateDate = new Date()
-        const currentDay = approximateDate.getDate();
-        approximateDate.setDate(currentDay + 3)
+        // const approximateDate = new Date()
+        // const currentDay = approximateDate.getDate();
+        // approximateDate.setDate(currentDay + 3)
         const parcel = {
             name:data.name,
             email:data.email,
@@ -35,7 +35,7 @@ const BookParcel = () => {
             booking_date: new Date(),
             status:'pending',
             delivery_man:'',
-            approximate_date:approximateDate
+            approximate_date:''
 
         }
         const res = await axiosSecure.post('/addtocart',parcel)

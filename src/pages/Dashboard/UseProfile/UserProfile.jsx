@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import { updateProfile } from "firebase/auth";
 import auth from "../../../firebase/firebase.config";
+import Swal from "sweetalert2";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`
@@ -28,7 +29,15 @@ const UserProfile = () => {
         if (res.data.success) {
             updateProfile(auth.currentUser, {
                 photoURL: res.data.data.display_url
-            }).then(res=>console.log(res))
+            }).then(res=>{
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Your profile picture has been updated",
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+            })
         }
     }
 

@@ -11,55 +11,94 @@ import MyParcel from "../pages/Dashboard/MyParcel/MyParcel";
 import UpdateParcel from "../pages/Dashboard/UpdateParcel/UpdateParcel";
 import UserHome from "../pages/Dashboard/userHome/UserHome";
 import UserProfile from "../pages/Dashboard/UseProfile/UserProfile";
+import AdminRoute from "./AdminRoute/AdminRoute";
+import AllParcesl from "../pages/Dashboard/AllParcels/AllParcesl";
+import AllDeliveryMen from "../pages/Dashboard/AllDeliveryMen/AllDeliveryMen";
+import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
+import AdminHome from "../pages/Dashboard/AdminHome/AdminHome";
+import DeliveryManHome from "../pages/Dashboard/DeliveryManHome/DeliveryManHome";
+import DeliveryManRoute from "./DeliveryManRoute/DeliveryManRoute";
+import MyDeliveryList from "../pages/Dashboard/MyDeliveryList/MyDeliveryList";
 
 export const router = createBrowserRouter([
     {
-      path: "/",
-      element: <Main></Main>,
-      errorElement:<ErrorPage></ErrorPage>,
-      children:[
-        {
-            path:'/',
-            element:<Home></Home>
-        },
-        {
-            path:'login',
-            element:<Login></Login>
-        },
-        {
-            path:'signup',
-            element:<Signup></Signup>
-        }
-      ]
-    },
-    {
-        path:'dashboard',
-        element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
-        children:[
+        path: "/",
+        element: <Main></Main>,
+        errorElement: <ErrorPage></ErrorPage>,
+        children: [
             {
-                path:'userHome',
-                element:<PrivateRoute><UserHome></UserHome></PrivateRoute>
+                path: '/',
+                element: <Home></Home>
             },
             {
-                path:'myProfile',
-                element:<UserProfile></UserProfile>
+                path: 'login',
+                element: <Login></Login>
             },
             {
-               path:'bookParcel',
-               element:<PrivateRoute><BookParcel></BookParcel></PrivateRoute> 
-            },
-            {
-                path:'updateParcel/:id',
-                element:<PrivateRoute><UpdateParcel></UpdateParcel></PrivateRoute>,
-                loader:({params})=>fetch(`http://localhost:5000/cart/${params.id}`)
-            },
-            {
-                path:'myParcels',
-                element:<PrivateRoute><MyParcel></MyParcel></PrivateRoute>
-
+                path: 'signup',
+                element: <Signup></Signup>
             }
         ]
+    },
+    {
+        path: 'dashboard',
+        element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+        children: [
+            {
+                path: 'userHome',
+                element: <PrivateRoute><UserHome></UserHome></PrivateRoute>
+            },
+            {
+                path: 'myProfile',
+                element: <UserProfile></UserProfile>
+            },
+            {
+                path: 'bookParcel',
+                element: <PrivateRoute><BookParcel></BookParcel></PrivateRoute>
+            },
+            {
+                path: 'updateParcel/:id',
+                element: <PrivateRoute><UpdateParcel></UpdateParcel></PrivateRoute>,
+                loader: ({ params }) => fetch(`http://localhost:5000/cart/${params.id}`)
+            },
+            {
+                path: 'myParcels',
+                element: <PrivateRoute><MyParcel></MyParcel></PrivateRoute>
+
+            },
+            //delivery man routes
+            {
+                path:'deliveryManHome',
+                element:<DeliveryManRoute><DeliveryManHome></DeliveryManHome></DeliveryManRoute>
+            },
+            {
+                path:'myDeliveryList',
+                element:<DeliveryManRoute><MyDeliveryList></MyDeliveryList></DeliveryManRoute>
+            },
+
+
+            //admin only routes
+            {
+                path: 'adminHome',
+                element: <AdminRoute><AdminHome></AdminHome></AdminRoute>
+            },
+
+            {
+                path: 'allParcels',
+                element: <AdminRoute><AllParcesl></AllParcesl></AdminRoute>
+            },
+            {
+                path: 'allDeliveryMen',
+                element: <AdminRoute><AllDeliveryMen></AllDeliveryMen></AdminRoute>
+            },
+            {
+                path: 'allUsers',
+                element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
+            }
+
+
+        ]
     }
-  ]); 
+]);
 
 

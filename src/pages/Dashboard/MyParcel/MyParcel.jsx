@@ -90,7 +90,7 @@ const MyParcel = () => {
                             <option value={'cancelled'}>cancelled</option>
                             <option value={'delivered'}>Delivered</option>
                             <option value={'returned'}>Returned</option>
-                            <option value={'shipped'}>Shipped</option>
+                            <option value={'On The Way'}>On The Way</option>
                             <option value={'showAll'}>Show all parcel</option>
                         </select>
                     </div>
