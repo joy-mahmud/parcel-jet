@@ -19,6 +19,7 @@ import AdminHome from "../pages/Dashboard/AdminHome/AdminHome";
 import DeliveryManHome from "../pages/Dashboard/DeliveryManHome/DeliveryManHome";
 import DeliveryManRoute from "./DeliveryManRoute/DeliveryManRoute";
 import MyDeliveryList from "../pages/Dashboard/MyDeliveryList/MyDeliveryList";
+import Myreview from "../pages/Dashboard/MyReview/Myreview";
 
 export const router = createBrowserRouter([
     {
@@ -74,6 +75,10 @@ export const router = createBrowserRouter([
             {
                 path:'myDeliveryList',
                 element:<DeliveryManRoute><MyDeliveryList></MyDeliveryList></DeliveryManRoute>
+            },
+            {
+                path:'myReviews',
+                element:<DeliveryManRoute><Myreview></Myreview></DeliveryManRoute>
             },
 
 
