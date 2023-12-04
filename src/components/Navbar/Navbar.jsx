@@ -37,12 +37,12 @@ const Navbar = () => {
         <div className="navbg py-3 fixed z-10 w-full text-white">
             <div className="container mx-auto flex justify-between items-center">
                 <div className="">
-                    <img className='w-[90px] h-[50px]' src={logo} alt="" />
-                    <h3 className="text-xl font-bold">parcel jet</h3>
+                    <img className='w-[70px] h-[40px] md:w-[90px] lg:h-[50px]' src={logo} alt="" />
+                    <h3 className="md:text-xl font-bold">parcel jet</h3>
                 </div>
                 <ul className="flex gap-5 font-bold text-xl">
                     <li className=''><NavLink>Home</NavLink></li>
-                    <li><NavLink>contact us</NavLink></li>
+                  
 
                     {user && isAdmin && <li><NavLink to={'dashboard/adminHome'}>Dashboard</NavLink></li>}
                     {user && isdeliveryMan && <li><NavLink to={'dashboard/deliveryManHome'}>Dashboard</NavLink></li>}

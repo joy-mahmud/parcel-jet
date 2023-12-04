@@ -2,9 +2,20 @@
 import img1 from '../../assets/shield.png'
 import img2 from '../../assets/express-delivery.png'
 import img3 from '../../assets/affordable.png'
+import AOs from 'aos';
+import 'aos/dist/aos.css'; // Import AOS CSS
+import { useEffect } from 'react';
 const Services = () => {
+    useEffect(() => {
+        AOs.init({
+  
+          offset: 300,
+          duration: 800,
+  
+        });
+      }, []);
     return (
-        <div className='container mx-auto mb-12'>
+        <div data-aos="fade-up" className='container mx-auto mb-12'>
             <div className='text-center'>
                 <h2 className='text-5xl mt-10 mb-5 text-center font-bold py-3 border-y-2 inline-block'>Our special services</h2>
             </div>
