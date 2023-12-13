@@ -20,6 +20,8 @@ import DeliveryManHome from "../pages/Dashboard/DeliveryManHome/DeliveryManHome"
 import DeliveryManRoute from "./DeliveryManRoute/DeliveryManRoute";
 import MyDeliveryList from "../pages/Dashboard/MyDeliveryList/MyDeliveryList";
 import Myreview from "../pages/Dashboard/MyReview/Myreview";
+import GetSupport from "../pages/Support/GetSupport";
+import UserMessages from "../pages/Support/UserMessages";
 
 export const router = createBrowserRouter([
     {
@@ -50,6 +52,10 @@ export const router = createBrowserRouter([
                 element: <PrivateRoute><UserHome></UserHome></PrivateRoute>
             },
             {
+                path:'getSupport',
+                element:<PrivateRoute><GetSupport></GetSupport></PrivateRoute>
+            },
+            {
                 path: 'myProfile',
                 element: <UserProfile></UserProfile>
             },
@@ -66,6 +72,10 @@ export const router = createBrowserRouter([
                 path: 'myParcels',
                 element: <PrivateRoute><MyParcel></MyParcel></PrivateRoute>
 
+            },
+            {
+                path:'myMessages',
+                element:<PrivateRoute><UserMessages></UserMessages></PrivateRoute>
             },
             //delivery man routes
             {
@@ -99,7 +109,7 @@ export const router = createBrowserRouter([
             {
                 path: 'allUsers',
                 element: <AdminRoute><AllUsers></AllUsers></AdminRoute>,
-                loader:()=>fetch('https://parcel-management-server-bay.vercel.app/usersCount')
+                loader:()=>fetch('http://localhost:5000/usersCount')
             }
 
 

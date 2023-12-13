@@ -43,7 +43,10 @@ const Navbar = () => {
                 <ul className="flex gap-5 font-bold text-xl">
                     <li className=''><NavLink>Home</NavLink></li>
                   
-
+                    {
+                        user && !isAdmin && !isdeliveryMan && <li><NavLink to={'dashboard/getSupport'}>Support</NavLink></li>
+                    }
+                    {user && isAdmin && <li><NavLink to={'dashboard/ProvideSupport'}>Support</NavLink></li>}
                     {user && isAdmin && <li><NavLink to={'dashboard/adminHome'}>Dashboard</NavLink></li>}
                     {user && isdeliveryMan && <li><NavLink to={'dashboard/deliveryManHome'}>Dashboard</NavLink></li>}
 
