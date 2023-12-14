@@ -4,54 +4,67 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../../provider/AuthProvider";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import { useQuery } from "@tanstack/react-query";
+import Loading from "../../../components/Loading/Loading";
 
 
 const BookParcel = () => {
     const { user } = useContext(AuthContext)
     const [parcelPrice, setPrice] = useState('')
     const axiosSecure = useAxiosSecure()
+    const { data, isPending } = useQuery({
+        queryKey: ['checkNewUser', user?.email],
+        queryFn: async () => {
+            const res = await axiosSecure.get(`/isNewUser?email=${user.email}`)
+            return res.data
+        }
+    })
     const {
         register,
         handleSubmit,
-        formState: { errors },
     } = useForm()
+
+    if (isPending) {
+        return <Loading></Loading>
+    }
+
     const onSubmit = async (data) => {
         // const approximateDate = new Date()
         // const currentDay = approximateDate.getDate();
         // approximateDate.setDate(currentDay + 3)
         const parcel = {
-            name:data.name,
-            email:data.email,
-            phone:data.phone,
-            parcel_type:data.parcel_type,
-            weight:data.weight,
-            receiver_name:data.receiver_name,
-            receiver_phone:data.receiver_phone,
-            receiver_address:data.receiver_address,
-            latitude:data.latitude,
-            longitude:data.longitude,
-            req_date:data.req_date,
-            price:parcelPrice,
+            name: data.name,
+            email: data.email,
+            phone: data.phone,
+            parcel_type: data.parcel_type,
+            weight: data.weight,
+            receiver_name: data.receiver_name,
+            receiver_phone: data.receiver_phone,
+            receiver_address: data.receiver_address,
+            latitude: data.latitude,
+            longitude: data.longitude,
+            req_date: data.req_date,
+            price: parcelPrice,
             booking_date: new Date(),
-            status:'pending',
-            delivery_man:'',
-            approximate_date:''
+            status: 'pending',
+            delivery_man: '',
+            approximate_date: ''
 
         }
-        const res = await axiosSecure.post('/addtocart',parcel)
-        if(res.data.insertedId){
+        const res = await axiosSecure.post('/addtocart', parcel)
+        if (res.data.insertedId) {
             Swal.fire({
                 position: "top-end",
                 icon: "success",
                 title: "You succefully ordered the parcel",
                 showConfirmButton: false,
                 timer: 1500
-              });
+            });
         }
         // console.log(res.data)
 
     }
-   
+
     return (
         <div>
             <SectionTitle heading={'Book a parcel'}></SectionTitle>
@@ -93,15 +106,30 @@ const BookParcel = () => {
                             </div>
                             <input type="number" {...register('weight')} onChange={(e) => {
                                 const value = e.target.value
-                                if (value <= 2) {
+                                if (data.isNewUser) {
+                                    if (value <= 2) {
 
-                                    setPrice(value * 50)
+                                        setPrice(value * 25)
+
+                                    }
+
+                                    else {
+                                        setPrice(100)
+                                    }
+                                }
+                                else {
+                                    if (value <= 2) {
+
+                                        setPrice(value * 50)
+
+                                    }
+
+                                    else {
+                                        setPrice(150)
+                                    }
 
                                 }
-                                
-                                 else {
-                                    setPrice(150)
-                                }
+
 
                             }} placeholder="Enter the weight of your parcel" className="input input-bordered w-full max-w-xs" />
                         </label>
@@ -109,7 +137,7 @@ const BookParcel = () => {
                             <div className="label">
                                 <span className="label-text">Receiver name</span>
                             </div>
-                            <input type="text" {...register('receiver_name',{required:true})} placeholder="Receiver name" className="input input-bordered w-full max-w-xs" />
+                            <input type="text" {...register('receiver_name', { required: true })} placeholder="Receiver name" className="input input-bordered w-full max-w-xs" />
                         </label>
                     </div>
 
@@ -118,13 +146,13 @@ const BookParcel = () => {
                             <div className="label">
                                 <span className="label-text">Receiver Phone</span>
                             </div>
-                            <input type="text" {...register('receiver_phone',{required:true})} placeholder="Enter receiver phone number" className="input input-bordered w-full max-w-xs" />
+                            <input type="text" {...register('receiver_phone', { required: true })} placeholder="Enter receiver phone number" className="input input-bordered w-full max-w-xs" />
                         </label>
                         <label className="form-control w-full max-w-xs">
                             <div className="label">
                                 <span className="label-text">Receiver address</span>
                             </div>
-                            <input type="text" {...register('receiver_address',{required:true})} placeholder="Enter receiver's address" className="input input-bordered w-full max-w-xs" />
+                            <input type="text" {...register('receiver_address', { required: true })} placeholder="Enter receiver's address" className="input input-bordered w-full max-w-xs" />
                         </label>
                     </div>
                     <div className="flex gap-5 justify-center">

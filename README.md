@@ -20,6 +20,20 @@
 - Every user has a profile page where he can maintain his profile details.
 - admin email(joy@gmail.com) pass:123aA@
 
+# New Feture implemented:
+## 1.Customer support system:
+- The customers can take support from us. if a user is logged in, then he can see the support tab on the navbar , or in the dashboard. Then they can go to the support page and can ask for a support by sending messages.
+- After sending a message , the admin can see the users message and can reply . Admin can reply the users message in the dashboard section and can see the messages . After clicking the name of the users the box collapse and then admin can reply.
+- After giving the reply from admin , the user can see the replied messages in the dashboard message page.
+- admin account : joy@gmail.com,pass:123aA@
+- user account : jack@gmail.com,pass:123aA@
+
+## 2. New customer discount system:
+- If a user is a new user he will get first 10 days , 50% discount.
+- 0ld users will have to pay 50 taka per kg but new users have 50% discount.
+- old user account :jack@gmail.com,pass:123aA@
+- new user account :robin@gmail.com,pass:123aA@
+
 
 # Technologies used here:
 - Html 5

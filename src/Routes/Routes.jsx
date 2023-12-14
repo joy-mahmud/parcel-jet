@@ -22,6 +22,7 @@ import MyDeliveryList from "../pages/Dashboard/MyDeliveryList/MyDeliveryList";
 import Myreview from "../pages/Dashboard/MyReview/Myreview";
 import GetSupport from "../pages/Support/GetSupport";
 import UserMessages from "../pages/Support/UserMessages";
+import ProvideSupport from "../pages/Support/ProvideSupport";
 
 export const router = createBrowserRouter([
     {
@@ -110,6 +111,10 @@ export const router = createBrowserRouter([
                 path: 'allUsers',
                 element: <AdminRoute><AllUsers></AllUsers></AdminRoute>,
                 loader:()=>fetch('http://localhost:5000/usersCount')
+            },
+            {
+                path:'provideSupport',
+                element:<AdminRoute><ProvideSupport></ProvideSupport></AdminRoute>
             }
 
 

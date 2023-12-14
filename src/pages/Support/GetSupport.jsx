@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { AuthContext } from "../../provider/AuthProvider";
 import { useContext } from "react";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 
 const GetSupport = () => {
     const { user } = useContext(AuthContext)
@@ -12,15 +13,23 @@ const GetSupport = () => {
         handleSubmit,
     } = useForm()
     const onSubmit = async (data) => {
-        console.log(user)
         const supportDate = {
             name:user.displayName,
             email:user.email,
             img:user.photoURL,
-            msg:data.msg
+            msg:data.msg,
+            status:'pending'
         }
         const res = await axiosSecure.post('/getSupport',supportDate)
-        console.log(res)
+        if(res.status===200){
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Your message is recieved please wait for the reply",
+                showConfirmButton: false,
+                timer: 1500
+              });
+        }
 
 
     }

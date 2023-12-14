@@ -36,11 +36,16 @@ const Signup = () => {
                         displayName: data.name, photoURL: res.data.data.display_url
                     })
                         .then(() => {
+                            const currentDate = new Date()
+                            const day = currentDate.getDate()
+                            const month = currentDate.getMonth()+1 
+                            const year = currentDate.getFullYear()
                             const userInfo = {
                                 name: data.name,
                                 email: data.email,
                                 role: data.role,
-                                image:res.data.data.display_url
+                                image:res.data.data.display_url,
+                                signUpDate:`${year}-${month}-${day}`
                             }
                             axiosPublic.post('/users', userInfo)
                                 .then(res => {
