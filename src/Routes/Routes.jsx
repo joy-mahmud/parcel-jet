@@ -110,7 +110,7 @@ export const router = createBrowserRouter([
             {
                 path: 'allUsers',
                 element: <AdminRoute><AllUsers></AllUsers></AdminRoute>,
-                loader:()=>fetch('http://localhost:5000/usersCount')
+                loader:()=>fetch('https://parcel-management-server-bay.vercel.app/usersCount')
             },
             {
                 path:'provideSupport',

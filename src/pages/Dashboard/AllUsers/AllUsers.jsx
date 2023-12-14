@@ -4,8 +4,6 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import { useEffect, useState } from "react";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
-import { buttonBaseClasses } from "@mui/material";
-import { ButtonToolbar } from "react-bootstrap";
 import Loading from "../../../components/Loading/Loading";
 import { useLoaderData } from "react-router-dom";
 import './allUsers.css'
