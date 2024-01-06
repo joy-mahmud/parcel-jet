@@ -36,7 +36,7 @@ const PaymentHistory = () => {
                     <tbody>
                         {
                             data.map((item,idx)=><tr key={idx}>
-                                <th></th>
+                                <th>{idx+1}</th>
                                 <td>{item.transactionId}</td>
                                 <td>{item.date}</td>
                                 <td>{item.price}</td>
