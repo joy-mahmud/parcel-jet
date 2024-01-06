@@ -7,14 +7,14 @@ const useCart = () => {
     const axiosSecure =useAxiosSecure()
     const {user}=useContext(AuthContext)
 
-    const {refetch,data: cart=[]} =useQuery({
+    const {refetch:cartFetch,data: cart=[]} =useQuery({
         queryKey:['cart',user?.email],
         queryFn:async ()=>{
             const res = await axiosSecure.get(`/cart/allParcels?email=${user.email}`)
             return res.data
         }
     })
-    return [cart,refetch]
+    return [cart,cartFetch]
 };
 
 export default useCart;

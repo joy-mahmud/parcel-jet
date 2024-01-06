@@ -6,7 +6,6 @@ import { useContext, useState } from 'react';
 
 // import useAdmin from '../../hooks/useAdmin';
 import { AuthContext } from '../../provider/AuthProvider';
-import useCart from '../../hooks/useCart';
 import { FaBell } from 'react-icons/fa';
 import Loading from '../Loading/Loading';
 import useAdmin from '../../hooks/useAdmin';

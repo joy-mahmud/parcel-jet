@@ -48,7 +48,8 @@ const BookParcel = () => {
             booking_date: new Date(),
             status: 'pending',
             delivery_man: '',
-            approximate_date: ''
+            approximate_date: '',
+            pay_status:'due'
 
         }
         const res = await axiosSecure.post('/addtocart', parcel)

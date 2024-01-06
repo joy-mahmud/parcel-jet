@@ -137,7 +137,7 @@ const MyParcel = () => {
                             <option value={'showAll'}>Show all parcel</option>
                         </select>
                     </div>
-                    <button className="px-5 py-2 bg-[#264E99] rounded-lg text-white">Pay</button>
+                    {parcelList.length?<Link to={'/dashboard/payment'}><button className="px-5 py-2 bg-[#264E99] rounded-lg text-white">Pay</button></Link>:<button disabled className="px-5 py-2 bg-[#264E99] rounded-lg text-white">Pay</button>}
                 </div>
             </div>
             <div className="overflow-x-auto">
@@ -150,6 +150,7 @@ const MyParcel = () => {
                             <th>Booking date</th>
                             <th>req. delivery date</th>
                             <th>Approximate delivery date</th>
+                            <th>payment</th>
                             <th>status</th>
                             <th>Action</th>
                         </tr>
@@ -163,6 +164,7 @@ const MyParcel = () => {
                                 <td>{item.booking_date}</td>
                                 <td>{item.req_date}</td>
                                 <td>{item.approximate_date}</td>
+                                <td>{item.pay_status}</td>
                                 <td>{item.status}{item.status === 'delivered' ? <button onClick={() => document.getElementById('my_modal_5').showModal()} className="bg-[#264E99] text-white py-[10px] px-3 rounded-lg ml-3"><p onClick={() => handleReview(item.delivery_man,item._id)}>Reveiw</p></button> : ""}</td>
                                 <td>
                                     <div className="space-x-2 flex items-center">
