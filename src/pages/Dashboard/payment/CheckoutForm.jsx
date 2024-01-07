@@ -12,28 +12,34 @@ const CheckoutForm = () => {
     const axiosSecure = useAxiosSecure()
     const { user } = useContext(AuthContext)
     const [error, setError] = useState('')
-    const navigate =useNavigate()
+    const navigate = useNavigate()
     const [transactionId, setTransactionId] = useState('')
     const [clientSecret, setClientSecret] = useState('')
     const stripe = useStripe()
     const elements = useElements()
-    const { data:cart, refetch, isPending } = useQuery({
+    const { data: cart, refetch, isPending } = useQuery({
         queryKey: ['cart', user?.email],
         queryFn: async () => {
             const res = await axiosSecure.get(`/cart/due/${user?.email}`)
             const totalPrice = res.data.reduce((total, item) => total + item.price, 0)
-            const cartItems= res.data
-            return {cartItems,totalPrice}
+            const cartItems = res.data
+            return { cartItems, totalPrice }
         }
     })
     const { data } = useQuery({
-        queryKey: ['cart', user?.email],
-        enabled:!isPending,
+        queryKey: ['paymentIntent', user?.email],
+        enabled: !isPending,
         queryFn: async () => {
-            const res = await axiosSecure.post('/create-payment-intent', { price: cart.totalPrice })
-            if(res.data){
-                setClientSecret(res.data.clientSecret) 
+            if (cart.totalPrice > 0) {
+                const res = await axiosSecure.post('/create-payment-intent', { price: cart.totalPrice })
+                if (res.data) {
+                    setClientSecret(res.data.clientSecret)
+                }
             }
+            else{
+                return null
+            }
+
         }
     })
     // useEffect(() => {
@@ -52,7 +58,7 @@ const CheckoutForm = () => {
     if (isPending) {
         return <h2>loading</h2>
     }
-    console.log( clientSecret)
+    console.log(clientSecret)
 
 
     const handleSubmit = async (event) => {
@@ -86,7 +92,7 @@ const CheckoutForm = () => {
                 }
             }
         })
-       
+
         if (confirmError) {
             console.log('confirm error')
         }
@@ -109,7 +115,7 @@ const CheckoutForm = () => {
                 cartIds: cart.cartItems.map(item => item._id),
                 pay_status: 'paid'
             }
-            const res2 = await axiosSecure.patch(`/cart/paid/${user.email}`,paymentUpdate)
+            const res2 = await axiosSecure.patch(`/cart/paid/${user.email}`, paymentUpdate)
             console.log(res2)
             if (res.data?.paymentResult?.insertedId) {
                 Swal.fire({
