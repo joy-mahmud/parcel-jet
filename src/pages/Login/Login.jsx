@@ -36,9 +36,9 @@ const Login = () => {
     }
    
     return (
-        <div className="flex justify-center items-center">
+        <div className="flex justify-center bg-[#c0e7f0] min-h-screen">
             
-            <div className="w-1/3 mt-28">
+            <div className="w-1/3 mt-20 ">
                 <h1 className="text-4xl text-center mt-5 mb-3 font-bold">Login Now</h1>
                 <form onSubmit={handleSubmit} className='space-y-2' >
                     <div>
