@@ -9,9 +9,9 @@ const Services = () => {
             <div className='mb-10'>
                 <h2 className='bg-[#e6f7fa] py-10 text-center text-4xl font-semibold'> Our Services</h2>
             </div>
-            <div className='flex justify-between'>
+            <div className='flex justify-around'>
                 <div className='bg-[#e6f7fa] w-[340px] px-14 py-16 flex flex-col justify-between'>
-                    <p className=' w-[50px] h-[50px] p-3 border-2 inline-block border-[#eb5e34] text-2xl font-bold rounded-full flex items-center justify-center mb-5'><span>01</span></p>
+                    <p className=' w-[50px] h-[50px] p-3 border-2 inline-block border-[#ff0000] text-2xl font-bold rounded-full flex items-center justify-center mb-5'><span>01</span></p>
                     <h2 className='text-4xl font-semibold mb-4'>
                         Business services
                     </h2>
@@ -22,12 +22,12 @@ const Services = () => {
                         <li>Dedicated account management</li>
                     </ul>
                     <div className='bg-tranparent'>
-                        <Link to={'/'}><button className='learnrBtn relative transition-all duration-500 hover:text-white px-5 py-4 border-2 flex items-center gap-3 border-[#112232] z-10'><span className='text-xl font-bold'>Learn More </span><FaArrowRight className='text-[#eb5e34] text-xl'></FaArrowRight></button> </Link>
+                        <Link to={'/'}><button className='learnrBtn relative transition-all duration-500 hover:text-white px-5 py-4 border-2 flex items-center gap-3 border-[#112232] z-10'><span className='text-xl font-bold'>Learn More </span><FaArrowRight className='text-[#ff0000] text-xl'></FaArrowRight></button> </Link>
                     </div>
 
                 </div>
                 <div className='bg-[#e6f7fa] w-[340px] px-14 py-16 flex flex-col justify-between'>
-                    <p className=' w-[50px] h-[50px] p-3 border-2 inline-block border-[#eb5e34] text-2xl font-bold rounded-full flex items-center justify-center mb-5'><span>02</span></p>
+                    <p className=' w-[50px] h-[50px] p-3 border-2 inline-block border-[#ff0000] text-2xl font-bold rounded-full flex items-center justify-center mb-5'><span>02</span></p>
                     <h2 className='text-4xl font-semibold mb-4'>
                         Shop <br /> Delivery
                     </h2>
@@ -38,12 +38,12 @@ const Services = () => {
                         <li>Advanced tracking capabilities</li>
                     </ul>
                     <div className='bg-tranparent'>
-                        <Link to={'/'}><button className='learnrBtn relative transition-all duration-500 hover:text-white px-5 py-3 border-2 flex items-center gap-3 border-[#112232] z-10'><span className='text-xl font-bold'>Learn More </span><FaArrowRight className='text-[#eb5e34] text-xl'></FaArrowRight></button> </Link>
+                        <Link to={'/'}><button className='learnrBtn relative transition-all duration-500 hover:text-white px-5 py-3 border-2 flex items-center gap-3 border-[#112232] z-10'><span className='text-xl font-bold'>Learn More </span><FaArrowRight className='text-[#ff0000] text-xl'></FaArrowRight></button> </Link>
                     </div>
 
                 </div>
                 <div className='bg-[#e6f7fa] w-[340px] px-14 py-16 flex flex-col justify-between'>
-                    <p className=' w-[50px] h-[50px] p-3 border-2 inline-block border-[#eb5e34] text-2xl font-bold rounded-full flex items-center justify-center mb-5'><span>03</span></p>
+                    <p className=' w-[50px] h-[50px] p-3 border-2 inline-block border-[#ff0000] text-2xl font-bold rounded-full flex items-center justify-center mb-5'><span>03</span></p>
                     <h2 className='text-4xl font-semibold mb-4'>
                         Home services
                     </h2>
@@ -56,7 +56,7 @@ const Services = () => {
                     </ul>
 
                     <div className='bg-tranparent'>
-                        <Link to={'/'}><button className='learnrBtn relative transition-all duration-500 hover:text-white px-5 py-3 border-2 flex items-center gap-3 border-[#112232] z-10'><span className='text-xl font-bold'>Learn More </span><FaArrowRight className='text-[#eb5e34] text-xl'></FaArrowRight></button> </Link>
+                        <Link to={'/'}><button className='learnrBtn relative transition-all duration-500 hover:text-white px-5 py-3 border-2 flex items-center gap-3 border-[#112232] z-10'><span className='text-xl font-bold'>Learn More </span><FaArrowRight className='text-[#ff0000] text-xl'></FaArrowRight></button> </Link>
                     </div>
 
                 </div>

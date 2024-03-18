@@ -20,8 +20,8 @@ const Banner = () => {
     }, [slides.length])
     return (
         <div>
-            <div className='relative mx-20'>
-                <div className='bg-[#112232] w-[80%] h-[600px]'>
+            <div className='relative mx-10'>
+                <div className='bg-[#112232] w-[100%] h-[600px]'>
                 </div>
                 <div className='absolute top-[50px] right-0 h-[450px] md:h-[500px] w-[70%]'>
                     {
@@ -32,13 +32,13 @@ const Banner = () => {
                                     <p className='bannerText text-xl mb-20'>{slide.text}</p>
 
                                     <div className='orderBtnBox w-[190px]'>
-                                        <Link to={'dashboard/bookParcel'}><button className='orderBtn relative transition-all duration-500 flex items-center justify-center gap-4 bg-white text-black px-4 py-5 w-[190px] hover:text-white'><span className='text-xl font-bold'>Order now </span><FaArrowRight className='text-[#eb5e34] arrowBtn text-xl'></FaArrowRight></button> </Link>
+                                        <Link to={'dashboard/bookParcel'}><button className='orderBtn relative transition-all duration-500 flex items-center justify-center gap-4 bg-white text-black px-4 py-5 w-[190px] hover:text-white'><span className='text-xl font-bold'>Order now </span><FaArrowRight className='text-[#ff0000] arrowBtn text-xl'></FaArrowRight></button> </Link>
                                        
                                     </div>
                                 </div>
 
                             </div>
-                            <img src={slide.image} style={{ display: idx === currentSlide ? 'block' : 'none' }} />
+                            <img className='h-[500px] w-full' src={slide.image} style={{ display: idx === currentSlide ? 'block' : 'none' }} />
 
                         </div>)
                     }

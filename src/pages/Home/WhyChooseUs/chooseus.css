@@ -1,0 +1,14 @@
+.overlay {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); 
+    z-index: 10; 
+  }
+  .custom-progress-bar{
+    stroke: 20px;
+  }
+  .custom-progress-bar .CircularProgressbar-path{
+    stroke: #ff0000; 
+  }

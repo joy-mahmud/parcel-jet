@@ -1,23 +1,11 @@
-.navbg{
-background-color: white;
-}
-.showprofile{
-    top: 40px;
-    right: 0px;
-   
-}
-.hideProfile{
-   display: none;
-}
-
-.navOrderBtn::before {
+.featureBtn::before {
     content: '';
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background: #ff0000;
+    background: #e6f7fa;
     z-index: -1;
     transition: transform 0.5s;
     transform-origin: 0 0;
@@ -26,7 +14,13 @@ background-color: white;
 
 }
 
-.navOrderBtn:hover::before {
+.featureBtn:hover::before {
     transform: scaleX(1);
 
 }
+.featureBtnContainer:hover{
+    transform: scale(95%);
+}
+/* .featureBtnContainer:hover .featureArrowBtn{
+    color: #ff0000;
+} */

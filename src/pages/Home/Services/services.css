@@ -23,5 +23,5 @@
         list-style: none; 
 }
 .listStyle li::marker {
-    color: #eb5e34; /* Change the color of the bullet points */
+    color: #ff0000; 
   }

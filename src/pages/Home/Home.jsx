@@ -1,5 +1,6 @@
 
 import Banner from "../../components/Banner/Banner";
+import Feature from "./Feature/Feature";
 import Footer from "./Footer/Footer";
 import Services from "./Services/Services";
 
@@ -12,6 +13,7 @@ const Home = () => {
     return (
         <div>
             <Banner></Banner>
+            <Feature></Feature>
             <Services></Services>
             <ChooseUs></ChooseUs>
            {/* 
