@@ -5,7 +5,7 @@ import location from '../../../assets/location-162102_1280.png'
 const Footer = () => {
     
     return (
-        <div>
+        <div className="mt-20">
             <h3>
                 <footer>
                     <div className="bg-[#050A30] lg:px-20 py-5 mb-10 ">

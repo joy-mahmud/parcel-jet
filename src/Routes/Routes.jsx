@@ -69,7 +69,7 @@ export const router = createBrowserRouter([
             {
                 path: 'updateParcel/:id',
                 element: <PrivateRoute><UpdateParcel></UpdateParcel></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/cart/${params.id}`)
+                loader: ({ params }) => fetch(`https://parcel-management-server-bay.vercel.app/${params.id}`)
             },
             {
                 path: 'myParcels',
@@ -120,7 +120,7 @@ export const router = createBrowserRouter([
             {
                 path: 'allUsers',
                 element: <AdminRoute><AllUsers></AllUsers></AdminRoute>,
-                loader:()=>fetch('http://localhost:5000/usersCount')
+                loader:()=>fetch('https://parcel-management-server-bay.vercel.app/usersCount')
             },
             {
                 path:'provideSupport',

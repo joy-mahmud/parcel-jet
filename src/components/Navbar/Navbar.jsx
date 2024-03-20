@@ -60,13 +60,13 @@ const Navbar = () => {
                         <div className='flex items-center gap-5 relative'>
                             <div style={{ position: 'absolute', zIndex: '10' }} className={showProfie ? 'showprofile' : 'hideProfile'}>
                                 <ul className="menu bg-[#242424] w-56 rounded-box">
-                                    <li className='w-full text-center text-2xl mb-5'>{user?.displayName}</li>
+                                    <li className='w-full text-center text-2xl mb-5 text-white'>{user?.displayName}</li>
                                     {
-                                        user && !isAdmin && !isdeliveryMan && <li><NavLink to={'dashboard/userHome'}>Dashboard</NavLink></li>
+                                        user && !isAdmin && !isdeliveryMan && <li className='text-white'><NavLink to={'dashboard/userHome'}>Dashboard</NavLink></li>
                                     }
-                                    {user && isAdmin && <li><NavLink to={'dashboard/adminHome'}>Dashboard</NavLink></li>}
-                                    {user && isdeliveryMan && <li><NavLink to={'dashboard/deliveryManHome'}>Dashboard</NavLink></li>}
-                                    <li onClick={hideMenu}><button onClick={handleLogout} className=''>LogOut</button></li>
+                                    {user && isAdmin && <li className='text-white'><NavLink to={'dashboard/adminHome'}>Dashboard</NavLink></li>}
+                                    {user && isdeliveryMan && <li className='text-white'><NavLink to={'dashboard/deliveryManHome'}>Dashboard</NavLink></li>}
+                                    <li onClick={hideMenu}><button onClick={handleLogout} className='text-white'>LogOut</button></li>
                                 </ul>
                             </div>
                         </div>
