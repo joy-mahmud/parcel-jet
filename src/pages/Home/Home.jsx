@@ -3,9 +3,8 @@ import Banner from "../../components/Banner/Banner";
 import Feature from "./Feature/Feature";
 import Footer from "./Footer/Footer";
 import Services from "./Services/Services";
-
 import Stats from "./Stats/Stats";
-import TopDeliveryMan from "./TopDeliveryMan";
+import TopDeliveryMan from "./TopDeliveryMen/TopDeliveryMan";
 import ChooseUs from "./WhyChooseUs/ChooseUs";
 
 
@@ -16,10 +15,11 @@ const Home = () => {
             <Feature></Feature>
             <Services></Services>
             <ChooseUs></ChooseUs>
-            <Footer></Footer> 
-           {/* 
+            <TopDeliveryMan></TopDeliveryMan>
+            <Footer></Footer>
+            {/* 
            <Stats></Stats>
-           <TopDeliveryMan></TopDeliveryMan>
+          
            <Footer></Footer> */}
         </div>
     );
